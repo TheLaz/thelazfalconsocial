@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html ng-app='reachApp'>
+	<head>
+		<title>
+			Falcon Social
+		</title>
+
+		<link rel="stylesheet"  href="/bootstrap/css/bootstrap.css"/>
+		<link rel="stylesheet"  href="/styles/site.css"/>
+		<script src="/lib/d3/d3.min.js"></script>
+		<script src="/angular/angular.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+	</head>
+
+	<body class="page">
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">
+		        <img alt="Falcon social" class="logo" src="/images/falcon_social.png">
+		      </a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		    	<li>
+		    		<a href="/default.html">Home</a>
+		    	</li>
+		    </ul>
+		  </div>
+		</nav>
+
+		<div class="page-header">
+		  <h1>
+		  	Real Time D3 Stacked Bar Chart
+		  </h1>
+		  <h2>
+		  		Streaming on server side to client <br/>
+		  		with Socket.IO
+		  	</h2>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body graph--stacked-bar" ng-controller="graphController">
+				<stacked-area-chart val="graphItem"></<stacked-area-chart></div>
+			</div>
+		</div>
+		
+		<script src="/reach.js"></script>
+		<script src="/components/sockets/falcon-socket.js"></script>
+		<script src="/components/reach/graphService.js"></script>
+		<script src="/components/reach/graphController.js"></script>
+		<script src="/components/reach/graphDirective.js"></script>
+	</body>
+</html>
+		

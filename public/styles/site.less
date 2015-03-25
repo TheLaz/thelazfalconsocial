@@ -1,0 +1,77 @@
+@import "themes/default.less";
+
+body {
+	font-family: @base-font-family;
+	font-size: @base-font-size;
+	line-height: @base-line-height;
+	color: @body-color;
+}
+
+.page {
+	
+	.page-header {
+		text-align: center;
+	}
+
+	.panel-default {
+		width: 96%;
+		margin: 0 auto;
+	}
+
+	.navbar-brand {
+		padding: 10px 15px;
+	}
+
+	.logo {
+		width: 100px;
+		height: @base-line-height;
+	}
+
+	.panel ~ .panel {
+		margin-top: 15px;
+	}
+}
+
+.page .table {
+	
+	input {
+
+		width: 100%;
+		padding: 3px;
+		border: 1px solid transparent;
+		background-color: transparent;
+
+		&:hover {
+			cursor: pointer;
+			border: 1px solid @input-hover; 
+		}
+
+		&:focus {
+			border: 1px solid @input-border;
+			background-color: @input-focus;
+		}
+	}
+}
+
+.graph--stacked-bar {
+	
+	.axis path,
+	.axis line {
+	  fill: none;
+	  stroke: @chart-line-stroke;
+	  shape-rendering: crispEdges;
+	}
+
+	.x.axis path {
+	  display: none;
+	}
+
+	stacked-area-chart {
+		display: block;
+	}
+
+}
+
+
+
+

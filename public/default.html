@@ -1,0 +1,104 @@
+<!doctype html>
+
+<html ng-app='falcon'>
+	<head>
+		<title>
+			Falcon Social
+		</title>
+
+		<link rel="stylesheet"  href="/bootstrap/css/bootstrap.css"/>
+		<link rel="stylesheet"  href="/styles/site.css"/>
+		<script src="/angular/angular.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+	</head>
+
+	<body class="page">
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">
+		        <img alt="Falcon social" class="logo" src="/images/falcon_social.png">
+		      </a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		    	<li>
+		    		<a href="reach.html">Reach Graph</a>
+		    	</li>
+		    </ul>
+		  </div>
+		</nav>
+		<div ng-controller="publishingController">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form ng-submit="addPublisher()">
+					  <div class="form-group">
+					    <label for="publisher-message">Message</label>
+					    <input type="text" ng-model="publisherMessage" class="form-control" id="publisher-message" placeholder="Enter message">
+					  </div>
+					  <div class="form-group">
+					    <label for="publisher-image-name">Image Name</label>
+					    <input type="text" ng-model="publisherImageName" class="form-control" id="publisher-image-name" placeholder="Enter image name">
+					  </div>
+					  <div class="form-group">
+					    <label for="publisher-image-url">Image Url</label>
+					    <input type="text" ng-model="publisherImageUrl" class="form-control" id="publisher-image-url" placeholder="Enter image name">
+					  </div>
+					  <div class="form-group">
+					    <label for="publisher-network">Network</label>
+					    <input type="text" ng-model="publisherNetwork" class="form-control" id="publisher-network" placeholder="Enter network">
+					  </div>
+					  <button type="submit" class="btn btn-primary">Add Publisher</button>
+					</form>
+				</div>
+			</div>
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Publishing</h3>
+			  </div>
+			  <div class="panel-body">
+			  	 <table st-table="displayedCollection" st-safe-src="rowCollection" ng-cloak class="table table-striped">
+						<thead>
+						<tr>
+							<th></th>
+							<th>Message</th>
+							<th>Image Name</th>
+							<th>Network</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="row in rowCollection">
+							<td>
+								<img width="85" height="85" ng-src='{{row.image}}'/>
+							</td>
+							<td>
+								<input editable ng-model="row.message" type="input" value="{{row.message}}"/>
+							</td>
+							<td>
+								<input editable ng-model="row.imagename" type="input" value="{{row.imagename}}"/>
+							</td>
+							<td>
+								<input editable ng-model="row.network" type="input" value="{{row.network}}"/>
+							</td>
+							<td>
+								<button type="button" ng-click="removeRow(row)" class="btn btn-sm btn-danger">
+								<i class="glyphicon glyphicon-remove-circle">
+								</i>
+								</button>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<script src="/lib/smart-table/smart-table.min.js"></script>
+		<script src="/app.js"></script>
+		<script src="/components/sockets/falcon-socket.js"></script>
+		<script src="/components/publishers/publishingService.js"></script>
+		<script src="/components/publishers/editableDirective.js"></script>
+		<script src="/components/publishers/publishingController.js"></script>
+		
+	</body>
+</html>
+		
