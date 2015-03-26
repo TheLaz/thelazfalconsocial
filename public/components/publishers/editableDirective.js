@@ -15,7 +15,7 @@
 
                     var commit = false;
 
-                    commit =  ( (event.which == 13)  ||(event.which == 9));
+                    commit =  ( (event.which == 13)  || (event.which == 9) );
 
                     if (commit) {
                         scope.saveRow(scope.row);
